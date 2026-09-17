@@ -1,0 +1,206 @@
+/* ================================================================
+   XOWAD — Global Design System
+   The Taste of Origin.
+   ================================================================ */
+
+/* ── Reset ─────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Design Tokens ─────────────────────────────────────────────── */
+:root {
+  /* Palette */
+  --forest: #18352b;
+  --forest-deep: #0e2219;
+  --ivory: #f3ebdd;
+  --earth: #6b5845;
+  --ink: #1a1a17;
+  --ink-light: #20201d;
+  --gold: #c59b52;
+  --gold-muted: rgba(197, 155, 82, 0.65);
+  --line: rgba(243, 235, 221, 0.14);
+  --muted: rgba(243, 235, 221, 0.55);
+
+  /* Typography */
+  --serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --sans: var(--font-jost), "Jost", system-ui, -apple-system, sans-serif;
+
+  /* Spacing */
+  --section-pad: clamp(88px, 11vw, 160px);
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Z-index scale */
+  --z-cursor: 9999;
+  --z-loader: 9998;
+  --z-header: 100;
+  --z-overlay: 50;
+}
+
+/* ── Base ──────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: auto; /* GSAP handles smooth scroll */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--ink);
+  color: var(--ivory);
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Typography ────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--serif);
+  font-weight: 500;
+  line-height: 0.88;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ── Layout ────────────────────────────────────────────────────── */
+.container {
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.section {
+  padding: var(--section-pad) 0;
+}
+
+/* ── Utility: Eyebrow ─────────────────────────────────────────── */
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+}
+
+/* ── Utility: Button ──────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 22px;
+  border: 1px solid var(--gold-muted);
+  color: var(--ivory);
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.4s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-out);
+  z-index: -1;
+}
+
+.btn:hover {
+  color: var(--ink);
+  border-color: var(--gold);
+}
+
+.btn:hover::before {
+  transform: scaleX(1);
+}
+
+.btn-dark {
+  color: var(--ink);
+  border-color: rgba(107, 88, 69, 0.4);
+}
+
+.btn-dark:hover {
+  color: var(--ink);
+}
+
+/* ── Utility: Divider ─────────────────────────────────────────── */
+.rule {
+  height: 1px;
+  background: var(--line);
+  border: none;
+}
+
+/* ── Selection ─────────────────────────────────────────────────── */
+::selection {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ink);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(197, 155, 82, 0.3);
+  border-radius: 2px;
+}
+
+/* ── Responsive ────────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .container {
+    width: min(calc(100% - 40px), 1100px);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: calc(100% - 32px);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: calc(100% - 24px);
+  }
+}

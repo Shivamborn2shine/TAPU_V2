@@ -1,0 +1,70 @@
+.section {
+  background: #050505;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.scrollWrapper {
+  display: flex;
+  height: 100vh;
+  width: fit-content;
+  will-change: transform;
+}
+
+.panel {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.visual {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #111;
+  overflow: hidden;
+}
+
+.visualOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.7);
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 600px;
+  padding: 0 20px;
+}
+
+.num {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--ivory);
+  margin-bottom: 20px;
+}
+
+.desc {
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(243, 235, 221, 0.7);
+}

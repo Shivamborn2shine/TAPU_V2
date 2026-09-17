@@ -1,0 +1,100 @@
+.story {
+  background: var(--ivory);
+  color: var(--ink);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 7vw;
+  align-items: center;
+}
+
+/* ── Visual placeholder ───────────────────────────────────────── */
+.visual {
+  min-height: 600px;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(24, 53, 43, 0.35), rgba(107, 88, 69, 0.4)),
+    repeating-linear-gradient(90deg, rgba(32, 32, 29, 0.1) 0 1px, transparent 1px 14px);
+}
+
+/* Vertical "ASSAM" text */
+.visual::before {
+  content: "ASSAM";
+  position: absolute;
+  left: -30px;
+  bottom: 10px;
+  font-family: var(--serif);
+  font-size: 10rem;
+  line-height: 0.7;
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  color: rgba(243, 235, 221, 0.7);
+  transform: rotate(-90deg);
+  transform-origin: left bottom;
+}
+
+/* Corner label */
+.visual::after {
+  content: "Tea / Rain / Soil / Hands";
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  color: var(--ivory);
+}
+
+/* ── Copy ─────────────────────────────────────────────────────── */
+.eyebrow {
+  color: var(--earth);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.title {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  font-weight: 400;
+  line-height: 0.9;
+  margin-bottom: 28px;
+}
+
+.text {
+  max-width: 520px;
+  color: #504b43;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.cta {
+  margin-top: 12px;
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .visual {
+    min-height: 420px;
+  }
+
+  .visual::before {
+    font-size: 6rem;
+    left: -15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .visual {
+    min-height: 340px;
+  }
+}

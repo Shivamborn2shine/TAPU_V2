@@ -1,0 +1,170 @@
+.brands {
+  background: #141512;
+  position: relative;
+  overflow: hidden;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: 70px;
+}
+
+.title {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6.5vw, 7rem);
+  font-weight: 400;
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+}
+
+/* ── Brand Row ────────────────────────────────────────────────── */
+.stack {
+  border-top: 1px solid var(--line);
+}
+
+.brand {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 80px;
+  align-items: center;
+  min-height: 200px;
+  padding: 0 8px;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+  transition: all 0.5s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover background glow */
+.brand::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-out);
+  z-index: 0;
+}
+
+.brand[data-brand="tapu"]::before {
+  background: linear-gradient(135deg, rgba(24, 53, 43, 0.25), rgba(197, 155, 82, 0.08));
+}
+
+.brand[data-brand="cha"]::before {
+  background: linear-gradient(135deg, rgba(107, 88, 69, 0.2), rgba(197, 155, 82, 0.08));
+}
+
+.brand[data-brand="xah"]::before {
+  background: linear-gradient(135deg, rgba(14, 34, 25, 0.3), rgba(243, 235, 221, 0.05));
+}
+
+.brand:hover::before {
+  opacity: 1;
+}
+
+.brand:hover {
+  padding-left: 28px;
+}
+
+.brandName {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 5.5vw, 6rem);
+  font-style: italic;
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+  transition: color 0.4s var(--ease-out);
+}
+
+.brand:hover .brandName {
+  color: var(--gold);
+}
+
+.brandDesc {
+  color: var(--muted);
+  max-width: 380px;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+  opacity: 0.7;
+  transition: opacity 0.4s;
+}
+
+.brand:hover .brandDesc {
+  opacity: 1;
+}
+
+.brandArrow {
+  font-size: 2rem;
+  color: var(--gold);
+  text-align: right;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.4s var(--ease-out);
+}
+
+.brand:hover .brandArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Hover State Label ────────────────────────────────────────── */
+.brandHoverLabel {
+  position: absolute;
+  right: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 1;
+}
+
+.brand:hover .brandHoverLabel {
+  opacity: 1;
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .brand {
+    grid-template-columns: 1fr 50px;
+    min-height: 140px;
+    padding: 24px 0;
+  }
+
+  .brand:hover {
+    padding-left: 16px;
+  }
+
+  .brandDesc {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: 8px;
+    max-width: none;
+  }
+
+  .brandArrow {
+    grid-column: 2;
+    grid-row: 1;
+    opacity: 0.5;
+    transform: none;
+  }
+
+  .brandHoverLabel {
+    display: none;
+  }
+}

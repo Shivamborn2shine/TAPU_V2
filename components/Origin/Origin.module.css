@@ -1,0 +1,132 @@
+.origin {
+  background: var(--forest);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Intro text ───────────────────────────────────────────────── */
+.intro {
+  padding: var(--section-pad) 0 80px;
+}
+
+.introEyebrow {
+  margin-bottom: 24px;
+}
+
+.introTitle {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 7vw, 7.5rem);
+  line-height: 0.85;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+/* ── Scroll Words ─────────────────────────────────────────────── */
+.wordsContainer {
+  position: relative;
+}
+
+.wordSection {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.wordInner {
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.wordDisplay {
+  font-family: var(--serif);
+  font-size: clamp(5rem, 12vw, 13rem);
+  line-height: 0.8;
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  color: var(--ivory);
+  opacity: 0.15;
+  transition: opacity 0.6s var(--ease-out);
+}
+
+.wordSection.active .wordDisplay {
+  opacity: 1;
+}
+
+.wordContent {
+  max-width: 440px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s var(--ease-out);
+}
+
+.wordSection.active .wordContent {
+  opacity: 1;
+  transform: none;
+}
+
+.wordNum {
+  font-size: 0.6rem;
+  color: var(--gold);
+  letter-spacing: 0.22em;
+  margin-bottom: 16px;
+}
+
+.wordTitle {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.wordDesc {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+/* ── Decorative line ──────────────────────────────────────────── */
+.decorLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .wordInner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    width: calc(100% - 32px);
+  }
+
+  .wordDisplay {
+    font-size: clamp(4rem, 18vw, 8rem);
+  }
+
+  .decorLine {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .wordInner {
+    width: calc(100% - 24px);
+  }
+
+  .wordSection {
+    min-height: 60vh;
+  }
+
+  .wordDisplay {
+    font-size: clamp(3.5rem, 20vw, 6rem);
+  }
+}

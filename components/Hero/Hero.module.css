@@ -1,0 +1,295 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+/* ── Landscape Layers ─────────────────────────────────────────── */
+.landscape {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.skyLayer {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 70% 30%, rgba(24, 53, 43, 0.6), transparent 60%),
+    radial-gradient(ellipse at 30% 70%, rgba(14, 34, 25, 0.4), transparent 50%),
+    linear-gradient(175deg, #0d1a14 0%, #152e24 30%, #1a1a17 100%);
+  will-change: transform;
+}
+
+.mountainLayer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 55%;
+  background:
+    linear-gradient(
+      to top,
+      rgba(24, 53, 43, 0.95) 0%,
+      rgba(24, 53, 43, 0.5) 40%,
+      transparent 100%
+    );
+  will-change: transform;
+}
+
+/* Mountain silhouettes using clip-path */
+.mountainSilhouette {
+  position: absolute;
+  bottom: 0;
+  left: -5%;
+  right: -5%;
+  height: 45%;
+  background: linear-gradient(to top, var(--forest-deep), rgba(24, 53, 43, 0.7));
+  clip-path: polygon(
+    0% 100%, 0% 65%, 5% 55%, 12% 48%, 18% 52%, 25% 38%,
+    32% 45%, 38% 32%, 45% 40%, 52% 28%, 58% 35%, 65% 22%,
+    72% 30%, 78% 25%, 85% 35%, 92% 28%, 100% 40%, 100% 100%
+  );
+  opacity: 0.6;
+  will-change: transform;
+}
+
+/* ── Mist ─────────────────────────────────────────────────────── */
+.mistLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.mist {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(243, 235, 221, 0.08), transparent 70%);
+  filter: blur(40px);
+  will-change: transform;
+}
+
+.mist1 {
+  width: 80vw;
+  height: 30vh;
+  top: 25%;
+  left: -10%;
+  animation: mistDrift1 18s ease-in-out infinite alternate;
+}
+
+.mist2 {
+  width: 60vw;
+  height: 25vh;
+  top: 45%;
+  right: -15%;
+  animation: mistDrift2 22s ease-in-out infinite alternate;
+  animation-delay: -5s;
+}
+
+.mist3 {
+  width: 50vw;
+  height: 20vh;
+  bottom: 20%;
+  left: 20%;
+  animation: mistDrift3 15s ease-in-out infinite alternate;
+  animation-delay: -8s;
+}
+
+@keyframes mistDrift1 {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+  100% { transform: translate(8vw, -3vh) scale(1.15); opacity: 0.8; }
+}
+
+@keyframes mistDrift2 {
+  0% { transform: translate(0, 0) scale(1.1); opacity: 0.4; }
+  100% { transform: translate(-6vw, 2vh) scale(1); opacity: 0.7; }
+}
+
+@keyframes mistDrift3 {
+  0% { transform: translate(0, 0); opacity: 0.3; }
+  100% { transform: translate(5vw, -2vh); opacity: 0.6; }
+}
+
+/* ── Grain texture ────────────────────────────────────────────── */
+.grain {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  opacity: 0.035;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 128px 128px;
+}
+
+/* ── Content ──────────────────────────────────────────────────── */
+.content {
+  position: relative;
+  z-index: 5;
+  padding: 0 0 72px;
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.kicker {
+  margin-bottom: 22px;
+  opacity: 0;
+}
+
+.title {
+  font-family: var(--serif);
+  font-size: clamp(4.5rem, 10vw, 10rem);
+  line-height: 0.82;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  margin: 0;
+  opacity: 0;
+}
+
+.titleLine {
+  display: block;
+  overflow: hidden;
+}
+
+.titleWord {
+  display: inline-block;
+}
+
+.titleAccent {
+  color: var(--gold);
+  font-style: normal;
+}
+
+.subtitle {
+  max-width: 460px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 32px 0 40px;
+  opacity: 0;
+}
+
+/* ── TAPU Launch Element ──────────────────────────────────────── */
+.tapuLaunch {
+  position: absolute;
+  right: 120px;
+  bottom: 180px; /* Above scroll to discover */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  opacity: 0;
+  pointer-events: none; /* Just visual */
+  z-index: 10;
+}
+
+.tapuBadge {
+  font-family: var(--sans);
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  color: var(--ivory);
+  background: rgba(198, 161, 91, 0.15);
+  border: 1px solid rgba(198, 161, 91, 0.35);
+  padding: 6px 14px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.tapuLaunchImg {
+  width: 320px;
+  height: auto;
+  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.6));
+  animation: tapuFloat 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes tapuFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+
+/* ── Bottom Row ───────────────────────────────────────────────── */
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  opacity: 0;
+}
+
+.scrollIndicator {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(243, 235, 221, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.scrollArrow {
+  display: block;
+  animation: scrollBounce 2.2s ease-in-out infinite;
+  font-size: 1rem;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .tapuLaunch {
+    right: 40px;
+    bottom: 160px;
+  }
+  .tapuLaunchImg {
+    width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    width: calc(100% - 32px);
+    padding-bottom: 48px;
+  }
+
+  .title {
+    font-size: clamp(3.5rem, 14vw, 6rem);
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .tapuLaunch {
+    display: none; /* Hide on small mobile to avoid text overlap */
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    width: calc(100% - 24px);
+    padding-bottom: 36px;
+  }
+
+  .title {
+    font-size: clamp(3rem, 16vw, 5rem);
+  }
+
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+
+  .scrollIndicator {
+    display: none;
+  }
+}

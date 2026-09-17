@@ -1,0 +1,80 @@
+.section {
+  background: #000;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 20px;
+}
+
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  height: 80vw;
+  max-width: 800px;
+  max-height: 800px;
+  background: radial-gradient(circle, rgba(198, 161, 91, 0.15) 0%, rgba(23, 61, 40, 0.1) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+
+.productImage {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  margin: 0 auto 60px;
+  filter: drop-shadow(0 40px 60px rgba(0, 0, 0, 0.9));
+}
+
+.title {
+  font-family: var(--serif);
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: var(--ivory);
+  margin-bottom: 20px;
+}
+
+.subtext {
+  font-family: var(--sans);
+  font-size: 1.1rem;
+  color: rgba(243, 235, 221, 0.6);
+  margin-bottom: 40px;
+}
+
+.ctaBtn {
+  background: var(--ivory);
+  color: #050505;
+  border: none;
+  padding: 20px 48px;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+  margin-bottom: 24px;
+  transition: all 0.3s;
+}
+
+.ctaBtn:hover {
+  background: var(--gold);
+  transform: translateY(-2px);
+}
+
+.smallText {
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  color: rgba(243, 235, 221, 0.4);
+}
