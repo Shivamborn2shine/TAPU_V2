@@ -56,8 +56,7 @@ export async function getProductBySku(sku: string): Promise<Product | null> {
 }
 
 // Generate the redirect URL for WooCommerce
-export function getCheckoutUrl(productId: number, quantity: number = 1) {
-  const domain = process.env.NEXT_PUBLIC_WORDPRESS_API_URL?.replace("/graphql", "") || "https://xowad.in";
-  return `${domain}/checkout/?add-to-cart=${productId}&quantity=${quantity}`;
-}
-
+export const getCheckoutUrl = (productId: number, quantity: number = 1) => {
+  // Directly add the product to the WooCommerce cart and skip to checkout
+  return `https://shop.xowad.in/checkout/?add-to-cart=${productId}&quantity=${quantity}`;
+};
