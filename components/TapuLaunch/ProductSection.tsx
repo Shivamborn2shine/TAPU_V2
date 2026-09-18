@@ -10,12 +10,16 @@ export default function ProductSection() {
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState("250g");
 
-  const sizes = ["100g", "250g", "500g", "1kg"];
+  const sizes = ["250g", "500g", "1kg"];
 
   const handleBuyNow = () => {
-    // 101 is our mock databaseId from woocommerce.ts
-    // In production, this would be dynamic based on the selected size variant
-    const url = getCheckoutUrl(101, quantity);
+    // Map selected size to real WooCommerce Product IDs
+    let productId = 56; // Default 250g
+    if (size === "250g") productId = 56;
+    if (size === "500g") productId = 60;
+    if (size === "1kg") productId = 61;
+
+    const url = getCheckoutUrl(productId, quantity);
     window.location.href = url;
   };
 
