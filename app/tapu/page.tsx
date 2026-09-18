@@ -5,7 +5,6 @@ import HeroPremium from "../../components/TapuLaunch/HeroPremium";
 import ExperienceSection from "../../components/TapuLaunch/ExperienceSection";
 import ProductSection from "../../components/TapuLaunch/ProductSection";
 import FinalCTA from "../../components/TapuLaunch/FinalCTA";
-import Journal from "../../components/Journal/Journal";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import FadeIn from "../../components/TapuLaunch/FadeIn";
@@ -41,7 +40,6 @@ export default function TapuLaunchPage() {
           </section>
         </FadeIn>
 
-        <FadeIn><Journal /></FadeIn>
         <FinalCTA />
       </main>
 
