@@ -2,10 +2,7 @@ import { TapuProvider } from "../../components/TapuLaunch/TapuContext";
 import LoadingScreen from "../../components/TapuLaunch/LoadingScreen";
 import Particles from "../../components/TapuLaunch/Particles";
 import HeroPremium from "../../components/TapuLaunch/HeroPremium";
-import StorySection from "../../components/TapuLaunch/StorySection";
 import ExperienceSection from "../../components/TapuLaunch/ExperienceSection";
-import IngredientsSection from "../../components/TapuLaunch/IngredientsSection";
-import OriginTimeline from "../../components/TapuLaunch/OriginTimeline";
 import ProductSection from "../../components/TapuLaunch/ProductSection";
 import FinalCTA from "../../components/TapuLaunch/FinalCTA";
 import Journal from "../../components/Journal/Journal";
@@ -23,49 +20,9 @@ export default function TapuLaunchPage() {
       <main style={{ background: "#050505", color: "#F3E8D0", overflowX: "hidden" }}>
         <HeroPremium />
         
-        <FadeIn><StorySection /></FadeIn>
-        <FadeIn><ExperienceSection /></FadeIn>
-        <FadeIn><IngredientsSection /></FadeIn>
-        <FadeIn><OriginTimeline /></FadeIn>
-        
-        {/* Section 6 - The Cup */}
-        <FadeIn>
-          <section style={{ height: "100vh", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: 20 }}>
-            <div>
-              <h2 style={{ fontFamily: "var(--serif)", fontSize: "clamp(3rem, 7vw, 6rem)", color: "var(--ivory)", fontWeight: 400, lineHeight: 0.9, marginBottom: 20 }}>
-                ONE CUP.<br />
-                A WHOLE LANDSCAPE.
-              </h2>
-              <p style={{ fontFamily: "var(--sans)", color: "rgba(243,235,221,0.6)", fontSize: "1.1rem" }}>
-                Bold in character. Warm in spirit. Unmistakably Assam.
-              </p>
-            </div>
-          </section>
-        </FadeIn>
-
         <FadeIn><ProductSection /></FadeIn>
         
-        {/* Section 8 - Why Tapu */}
-        <FadeIn>
-          <section style={{ padding: "100px 20px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 40, maxWidth: 1200, margin: "0 auto", textAlign: "center" }}>
-            <div>
-              <h4 style={{ color: "var(--gold)", letterSpacing: "0.15em", marginBottom: 12, fontSize: "0.8rem" }}>AUTHENTIC ASSAM</h4>
-              <p style={{ color: "rgba(243,235,221,0.6)", fontSize: "0.9rem", lineHeight: 1.6 }}>Rooted in the land and character of Assam.</p>
-            </div>
-            <div>
-              <h4 style={{ color: "var(--gold)", letterSpacing: "0.15em", marginBottom: 12, fontSize: "0.8rem" }}>CAREFULLY BLENDED</h4>
-              <p style={{ color: "rgba(243,235,221,0.6)", fontSize: "0.9rem", lineHeight: 1.6 }}>Selected tea components brought together for a consistent cup.</p>
-            </div>
-            <div>
-              <h4 style={{ color: "var(--gold)", letterSpacing: "0.15em", marginBottom: 12, fontSize: "0.8rem" }}>EVERYDAY PREMIUM</h4>
-              <p style={{ color: "rgba(243,235,221,0.6)", fontSize: "0.9rem", lineHeight: 1.6 }}>Premium experience without unnecessary extravagance.</p>
-            </div>
-            <div>
-              <h4 style={{ color: "var(--gold)", letterSpacing: "0.15em", marginBottom: 12, fontSize: "0.8rem" }}>MADE TO BE FELT</h4>
-              <p style={{ color: "rgba(243,235,221,0.6)", fontSize: "0.9rem", lineHeight: 1.6 }}>More than tea — a sensory connection to Assam.</p>
-            </div>
-          </section>
-        </FadeIn>
+        <FadeIn><ExperienceSection /></FadeIn>
 
         {/* Section 9 - XOWAD */}
         <FadeIn>
